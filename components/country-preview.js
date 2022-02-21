@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function CountryPreview({ country }) {
   return (
-    <article className="mb-4 w-full p-0 sm:w-1/2 sm:p-4 md:w-1/3 lg:p-8 xl:mb-12 xl:w-1/4">
+    <article className="mb-4 w-full px-0 sm:w-1/2 sm:px-4 md:w-1/3 lg:px-8 xl:mb-12 xl:w-1/4">
       <div className="h-full overflow-hidden rounded-md border border-lm-light-grey bg-white shadow-lg dark:border-dm-dark-blue dark:bg-dm-blue">
         <Link href={`/${country.cca3}`}>
           <a>

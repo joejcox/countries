@@ -45,7 +45,7 @@ export default function Search() {
 
   if (results <= 0) {
     return (
-      <Main>
+      <main role="main">
         <SearchSection />
         <div className="container mx-auto">
           <section className="py-16">
@@ -54,7 +54,7 @@ export default function Search() {
             </h1>
           </section>
         </div>
-      </Main>
+      </main>
     )
   }
 
