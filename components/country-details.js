@@ -6,7 +6,7 @@ export default function CountryDetails({ country }) {
   const currencies = country.currencies && [...Object.keys(country.currencies)]
 
   const CurrenciesList = () => (
-    <p className="w-full sm:w-1/2">
+    <p>
       <b>Currencies: </b>
       {currencies.map((currency, index) => {
         if (index === currencies.length - 1) {
@@ -19,7 +19,7 @@ export default function CountryDetails({ country }) {
   )
 
   const Languages = () => (
-    <p className="w-full sm:w-1/2">
+    <p>
       <b>Languages: </b>
       {languages.map((language, index) => {
         if (index === languages.length - 1) {
@@ -34,34 +34,44 @@ export default function CountryDetails({ country }) {
   return (
     <div className="flex w-full flex-col justify-center p-8 leading-[2] lg:w-1/2 lg:py-0 lg:pl-16">
       <h1 className="mb-8 text-3xl font-extrabold">{country.name.common}</h1>
-      <div className="flex w-full flex-wrap">
-        <p className="w-full sm:w-1/2">
-          <b>Native Name: </b>
-          {country.name.nativeName[languages[0]].common}
-        </p>
-        <p className="w-full sm:w-1/2">
-          <b>Top Level Domain: </b>
-          {country.tld}
-        </p>
-        <p className="w-full sm:w-1/2">
-          <b>Population: </b>
-          {country.population.toLocaleString()}
-        </p>
-        {currencies && <CurrenciesList />}
-        <p className="w-full sm:w-1/2">
-          <b>Region: </b>
-          {country.region}
-        </p>
-        <Languages />
-        <p className="w-full sm:w-1/2">
-          <b>Sub Region: </b>
-          {country.subregion}
-        </p>
+      <div className="flex w-full flex-wrap leading-[2.25]">
+        <div className="w-full sm:w-1/2">
+          <p>
+            <b>Native Name: </b>
+            {country.name.nativeName[languages[0]].common}
+          </p>
+          <p>
+            <b>Population: </b>
+            {country.population.toLocaleString()}
+          </p>
+
+          <p>
+            <b>Region: </b>
+            {country.region}
+          </p>
+
+          <p>
+            <b>Sub Region: </b>
+            {country.subregion}
+          </p>
+
+          <p>
+            <b>Capital: </b>
+            {country.capital}
+          </p>
+        </div>
+        <div className="w-full sm:w-1/2">
+          <p>
+            <b>Top Level Domain: </b>
+            {country.tld}
+          </p>
+
+          {currencies && <CurrenciesList />}
+
+          <Languages />
+        </div>
       </div>
-      <p className="w-full sm:w-1/2">
-        <b>Capital: </b>
-        {country.capital}
-      </p>
+
       {country.borders && (
         <div className="mt-10">
           <b className="mb-2 block">Border Countries: </b>{' '}

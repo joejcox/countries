@@ -34,7 +34,7 @@ export default function Country({ country, error }) {
       <BackButton />
 
       <section>
-        <div className="container mx-auto flex flex-wrap items-stretch">
+        <div className="container mx-auto flex flex-wrap items-center">
           <CountryImage country={country} />
           <CountryDetails country={country} />
         </div>
