@@ -60,7 +60,7 @@ export default function Filter() {
       >
         <div className="mt-2 flex w-full flex-col items-stretch rounded-lg border-gray-300 bg-white shadow dark:border-dm-dark-blue dark:bg-dm-blue">
           <button
-            className="p-4 text-left font-bold hover:bg-gray-200 dark:hover:bg-dm-dark-blue"
+            className="p-4 text-left font-bold hover:bg-gray-100 dark:hover:bg-dm-dark-blue"
             onClick={() => handleClick('all')}
           >
             Show All

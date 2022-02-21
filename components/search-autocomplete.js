@@ -39,13 +39,10 @@ export default function SearchAutocomplete({
             .includes(term)
         ) {
           return (
-            <div
-              className="cursor-pointer font-light hover:bg-lm-light-grey dark:hover:bg-dm-blue"
-              key={country.cca3}
-            >
+            <div className="cursor-pointer font-light" key={country.cca3}>
               <button
                 onClick={() => handleClick(`/${country.cca3}`)}
-                className="flex w-full items-center justify-between py-3 px-4 hover:bg-dm-dark-blue"
+                className="flex w-full items-center justify-between py-3 px-4 hover:bg-gray-100 dark:hover:bg-dm-dark-blue"
               >
                 {country.name.common}{' '}
                 <span className="text-xs text-gray-400">{country.region}</span>
