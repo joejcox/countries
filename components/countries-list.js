@@ -7,9 +7,11 @@ export default function CountriesList({ countries }) {
         className="container mx-auto flex flex-wrap items-stretch"
         id="countries"
       >
-        {countries.map((country) => (
-          <CountryPreview country={country} key={country.name.common} />
-        ))}
+        {countries
+          .sort((a, b) => a.name.common.localeCompare(b.name.common))
+          .map((country) => (
+            <CountryPreview country={country} key={country.name.common} />
+          ))}
       </div>
     </section>
   )
