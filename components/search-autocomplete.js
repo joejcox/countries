@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import { useContext } from 'react'
 import { CountriesContext } from '../context/countries'
 
-export default function SearchAutocomplete({ term }) {
+export default function SearchAutocomplete({ term, setFormIsFocused }) {
   const router = useRouter()
   term = term.trim().toLowerCase()
   const ctx = useContext(CountriesContext)
@@ -13,10 +13,9 @@ export default function SearchAutocomplete({ term }) {
 
   const handleClick = (route) => {
     const hyphenate = route.replace(' ', '-')
+    setFormIsFocused(false)
     window.location.href = hyphenate
   }
-
-  if (term === '') return null
 
   return (
     <div className="absolute top-full left-0 z-50 max-h-[400px] w-full translate-y-2 overflow-y-scroll rounded-lg border border-lm-light-grey bg-white shadow dark:border-dm-dark-blue dark:bg-dm-blue">

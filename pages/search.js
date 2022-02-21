@@ -68,12 +68,16 @@ export default function Search() {
         <section>
           <p className="text-xl">
             Did you mean{' '}
-            {results.map((country) => (
-              <Link href={`/${country.cca3}`} key={country.cca3}>
-                <a className="text-blue-500 underline">{country.name.common}</a>
-              </Link>
+            {results.map((country, index) => (
+              <>
+                <Link href={`/${country.cca3}`} key={country.cca3}>
+                  <a className="text-blue-500 underline">
+                    {country.name.common}
+                  </a>
+                </Link>
+                {index < results.length - 1 ? ', ' : '?'}
+              </>
             ))}
-            ?
           </p>
         </section>
       </div>
