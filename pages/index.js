@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import CountriesList from '../components/countries-list'
 import Filter from '../components/filter'
 import SearchBar from '../components/search-bar'
+import SearchSection from '../components/search-section'
 
 export default function Home({ countries }) {
   const router = useRouter()
@@ -19,12 +20,8 @@ export default function Home({ countries }) {
         </title>
         <meta name="description" content="Explore countries" />
       </Head>
-      <section className="py-8">
-        <div className="container mx-auto flex flex-col flex-wrap items-center justify-between md:flex-row">
-          <SearchBar />
-          <Filter />
-        </div>
-      </section>
+      <h1 className="hidden">Countries API</h1>
+      <SearchSection />
       <CountriesList countries={countries} />
     </main>
   )

@@ -8,6 +8,7 @@ export default function SearchBar() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    router.push(`/search?country=${value}`)
   }
 
   const handleChange = (e) => {
@@ -16,7 +17,7 @@ export default function SearchBar() {
 
   return (
     <div className="relative mb-8 w-full md:mb-0 md:w-1/3">
-      <form onSubmit={handleSubmit} className="w-full">
+      <form onSubmit={(e) => handleSubmit(e)} className="w-full">
         <input
           type="search"
           placeholder={

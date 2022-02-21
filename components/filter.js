@@ -10,6 +10,7 @@ export default function Filter() {
   const [regions, setRegions] = useState([])
 
   useEffect(() => {
+    if (router.pathname !== '/') return false
     const r = []
     countries.forEach((country) => {
       if (r.includes(country.region)) return false
@@ -38,6 +39,8 @@ export default function Filter() {
     setRegion(str)
     setMenuIsOpen(false)
   }
+
+  if (router.pathname !== '/') return null
 
   return (
     <div
