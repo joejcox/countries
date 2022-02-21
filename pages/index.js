@@ -3,8 +3,6 @@ import cacheData from 'memory-cache'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import CountriesList from '../components/countries-list'
-import Filter from '../components/filter'
-import SearchBar from '../components/search-bar'
 import SearchSection from '../components/search-section'
 
 export default function Home({ countries }) {

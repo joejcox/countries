@@ -41,7 +41,7 @@ export default function Search() {
     setLoading(false)
   }, [countries, router.query.country])
 
-  if (loading) return null
+  if (loading) return <h1 className="hidden">Countries API</h1>
 
   if (results <= 0) {
     return (
