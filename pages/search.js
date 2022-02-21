@@ -12,13 +12,15 @@ export default function Search() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    if (!router.query.country) return false
     const country = countries.find(
       (country) =>
         country.name.common
           .trim()
           .toLowerCase()
           .normalize('NFD')
-          .replace(/[\u0300-\u036f]/g, '') === router.query.country
+          .replace(/[\u0300-\u036f]/g, '') ===
+        router.query.country.trim().toLowerCase()
     )
 
     if (country) {
@@ -32,7 +34,7 @@ export default function Search() {
         .toLowerCase()
         .normalize('NFD')
         .replace(/[\u0300-\u036f]/g, '')
-        .includes(router.query.country)
+        .includes(router.query.country.trim().toLowerCase())
     )
 
     setResults(matches)
@@ -69,14 +71,14 @@ export default function Search() {
           <p className="text-xl">
             Did you mean{' '}
             {results.map((country, index) => (
-              <>
-                <Link href={`/${country.cca3}`} key={country.cca3}>
+              <span key={country.cca3}>
+                <Link href={`/${country.cca3}`}>
                   <a className="text-blue-500 underline">
                     {country.name.common}
                   </a>
                 </Link>
                 {index < results.length - 1 ? ', ' : '?'}
-              </>
+              </span>
             ))}
           </p>
         </section>

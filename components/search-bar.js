@@ -29,7 +29,9 @@ export default function SearchBar() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    if (e.target.value === '') return false
     router.push(`/search?country=${value}`)
+    setValue('')
   }
 
   const handleChange = (e) => {
