@@ -2,7 +2,11 @@ import { useRouter } from 'next/router'
 import { useContext } from 'react'
 import { CountriesContext } from '../context/countries'
 
-export default function SearchAutocomplete({ term, setFormIsFocused }) {
+export default function SearchAutocomplete({
+  term,
+  setFormIsFocused,
+  formIsFocused,
+}) {
   const router = useRouter()
   term = term.trim().toLowerCase()
   const ctx = useContext(CountriesContext)
@@ -18,10 +22,14 @@ export default function SearchAutocomplete({ term, setFormIsFocused }) {
   }
 
   return (
-    <div className="absolute top-full left-0 z-50 max-h-[400px] w-full translate-y-2 overflow-y-scroll rounded-lg border border-lm-light-grey bg-white shadow dark:border-dm-dark-blue dark:bg-dm-blue">
+    <div
+      className={`${
+        term && formIsFocused
+          ? 'opacity-1 pointer-events-auto translate-y-1.5 transition-all duration-100'
+          : 'pointer-events-none translate-y-6 opacity-0'
+      } absolute top-full left-0 z-50 h-auto max-h-[385px] w-full overflow-hidden rounded-lg border border-lm-light-grey bg-white shadow-md dark:border-dm-dark-blue dark:bg-dm-blue`}
+    >
       {countries.map((country) => {
-        if (!term) return false
-
         if (
           country.name.common
             .trim()
@@ -32,12 +40,12 @@ export default function SearchAutocomplete({ term, setFormIsFocused }) {
         ) {
           return (
             <div
-              className="cursor-pointer py-3 px-4 font-light hover:bg-lm-light-grey dark:hover:bg-dm-blue"
+              className="cursor-pointer font-light hover:bg-lm-light-grey dark:hover:bg-dm-blue"
               key={country.cca3}
             >
               <button
                 onClick={() => handleClick(`/${country.cca3}`)}
-                className="flex w-full items-center justify-between"
+                className="flex w-full items-center justify-between py-3 px-4 hover:bg-dm-dark-blue"
               >
                 {country.name.common}{' '}
                 <span className="text-xs text-gray-400">{country.region}</span>

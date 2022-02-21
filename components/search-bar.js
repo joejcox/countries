@@ -54,9 +54,11 @@ export default function SearchBar() {
           value={value}
         />
       </form>
-      {value !== '' && formIsFocused && (
-        <SearchAutocomplete term={value} setFormIsFocused={setFormIsFocused} />
-      )}
+      <SearchAutocomplete
+        term={value}
+        formIsFocused={formIsFocused}
+        setFormIsFocused={setFormIsFocused}
+      />
     </div>
   )
 }
